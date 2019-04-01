@@ -1,10 +1,11 @@
-public class intraDayApiConnector extends ApiConnector{
+class intraDayApiConnector extends ApiConnector{
 
     private final String function;
     private final String symbol;
     private final String interval;
     private final String apikey;
 
+    //constructor
     intraDayApiConnector(String function, String symbol, String interval, String apikey){
         super();
         this.function = function;
