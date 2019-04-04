@@ -19,7 +19,6 @@ class ApiConnector {
      * @param timeout An int that specifies timeout in milliseconds
      */
     void get_request(String url, int timeout) {
-        InputStream inputStream;
         try {
             URL request = new URL(url);
             URLConnection conn = request.openConnection();
@@ -44,11 +43,7 @@ class ApiConnector {
      * @param fileName name of file to write InputStream object to.
      */
     void write_file(String fileName) {
-        int c;
         try {
-            while ((c = this.inputStream.read()) != -1) {
-                System.out.print((char) c);
-            }
             Files.copy(this.inputStream, Paths.get(fileName), StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             throw new RuntimeException("Error writing Data from Alpha Vantage to file " + fileName, e);
