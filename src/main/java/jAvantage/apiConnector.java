@@ -1,13 +1,15 @@
+package jAvantage;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 
-class ApiConnector {
+class apiConnector {
     static final String base_url = "https://www.alphavantage.co/query?";
     private InputStream inputStream;
 
@@ -28,7 +30,7 @@ class ApiConnector {
             //BufferedReader bufferedReader = new BufferedReader(inputStream);
             //StringBuilder responseBuilder = new StringBuilder();
             //responseBuilder.append(bufferedReader.readLine());
-
+            System.out.println("test");
             this.inputStream = conn.getInputStream();
         } catch (IOException e) {
             throw new RuntimeException("Error pulling data from Alpha Vantage", e);
@@ -49,6 +51,10 @@ class ApiConnector {
             throw new RuntimeException("Error writing Data from Alpha Vantage to file " + fileName, e);
         }
     }
+    public static boolean isNullOrEmpty(String str) {
+        return str == null || str.isEmpty();
+    }
 }
+
 
 
