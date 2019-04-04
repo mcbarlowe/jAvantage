@@ -8,14 +8,28 @@ class StockTimeSeries extends ApiConnector{
     private String apikey;
     private String[] sizeValues = {"full", "compact"};
     private String outputSize;
+    private String url;
 
-    //constructor
+    /**
+     * Constructor for the StockTimeSeries class which runs the checkInputs method to make sure
+     * all the parameters have been entered in properly
+     * @param function the type of time series API call you want object to make
+     * @param symbol   The Stock symbol you want to query against the Alpha Vantage API
+     * @param apikey   Your personal API key provided by Alpha Vantage
+     * @param interval This is the time interval between two data points
+     * @param outputSize Sets the output size of the API call compact returns just last 100 data points
+     */
     StockTimeSeries(String function, String symbol, String apikey, String outputSize, int... interval){
-        checkInterval(function, symbol, apikey, outputSize, interval);
+        checkInputs(function, symbol, apikey, outputSize, interval);
     }
 
     public urlBuilder(String function, String symbol, String apikey, String outputSize, int... interval){
-
+        if (interval.length != 1){
+            this.url = this.base_url + "function=" + function + "&symbol=" + symbol + "&outputsize=" + outputSize + "&apikey=" + apikey
+        }
+        else {
+            this.url = this.base_url + "function=" + function + "&symbol=" + symbol
+        }
     }
 
     /**
@@ -27,7 +41,7 @@ class StockTimeSeries extends ApiConnector{
      * @param interval This is the time interval between two data points
      * @param outputSize Sets the output size of the API call compact returns just last 100 data points
      */
-    public void checkInterval(String function, String symbol,  String apikey, String outputSize, int... interval) {
+    public void checkInputs(String function, String symbol,  String apikey, String outputSize, int... interval) {
         if (interval.length == 0 && function == "TIME_SERIES_INTRADAY"){
             throw new IllegalArgumentException("Intraday Time Series API calls must have a time interval argument provided");
         }
