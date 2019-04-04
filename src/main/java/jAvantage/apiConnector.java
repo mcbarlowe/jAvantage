@@ -30,7 +30,6 @@ class apiConnector {
             //BufferedReader bufferedReader = new BufferedReader(inputStream);
             //StringBuilder responseBuilder = new StringBuilder();
             //responseBuilder.append(bufferedReader.readLine());
-            System.out.println("test");
             this.inputStream = conn.getInputStream();
         } catch (IOException e) {
             throw new RuntimeException("Error pulling data from Alpha Vantage", e);

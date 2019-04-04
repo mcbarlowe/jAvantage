@@ -1,12 +1,16 @@
 package jAvantage;
 
+/**
+ * This class acesses the Forex aspects of the Alpha Vantage API
+ */
 public class forex extends apiConnector {
 
     private final String[] sizeValues = {"full", "compact"};
     private String url;
 
     /**
-     * Constructor for CURRENCY_EXCHANGE_RATE, FX_WEEKLY and FX_MONTHLY API calls
+     * Constructor for CURRENCY_EXCHANGE_RATE, FX_WEEKLY and FX_MONTHLY API calls.
+     * This consctructor can alls be used with crypto currencies as well.
      * @param function     Forex time series you want to query
      * @param from_symbol  Three letter symbol from the Forex currency list.
      * @param to_symbol    Three letter symbol from the Forex currency list.

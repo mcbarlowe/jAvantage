@@ -2,6 +2,9 @@ package jAvantage;
 
 import java.util.Arrays;
 
+/**
+ * This class access the Stock/securities portion of the Alpha Vantage API
+ */
 public class StockTimeSeries extends apiConnector{
 
     private final String[] sizeValues = {"full", "compact"};
