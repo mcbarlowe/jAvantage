@@ -26,5 +26,6 @@ public class SMA extends apiConnector {
         System.out.println(SMADaily.url);
         SMADaily.get_request(SMADaily.url, 2000);
         SMADaily.write_file("SMADaily.json");
+        SMADaily.write_csv(SMADaily.url, "SMADaily", 1000);
     }
 }

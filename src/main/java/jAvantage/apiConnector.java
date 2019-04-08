@@ -50,6 +50,19 @@ public class apiConnector {
             throw new RuntimeException("Error writing Data from Alpha Vantage to file " + fileName, e);
         }
     }
+    public void write_csv (String url, String fileName, int timeout) {
+        try {
+            InputStream inStream;
+            URL request = new URL(url + "&datatype=csv");
+            URLConnection conn = request.openConnection();
+            conn.setConnectTimeout(timeout);
+            conn.setReadTimeout(timeout);
+            inStream = conn.getInputStream();
+            Files.copy(inStream, Paths.get(fileName + ".csv"), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new RuntimeException("Error writing Data from Alpha Vantage to file " + fileName, e);
+        }
+    }
     public static boolean isNullOrEmpty(String str) {
         return str == null || str.isEmpty();
     }
