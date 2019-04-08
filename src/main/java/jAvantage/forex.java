@@ -48,6 +48,10 @@ public class forex extends apiConnector {
                 + to_symbol + "&outputsize=" + outputSize + "&apikey=" + apikey;
     }
     public static void main(String[] args) {
+        crypto cryptoDaily = new crypto("DIGITAL_CURRENCY_DAILY", "BTC", "CNY" ,"BKWGHZ46RDAVZQOK");
+        System.out.println(cryptoDaily.url);
+        cryptoDaily.get_request(cryptoDaily.url, 2000);
+        cryptoDaily.write_file("cryptoDaily.json");
         forex intraday = new forex("FX_INTRADAY", "USD", "EUR",
                 "BKWGHZ46RDAVZQOK", "full",5);
         System.out.println(intraday.url);

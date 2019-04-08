@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 
-class apiConnector {
-    static final String base_url = "https://www.alphavantage.co/query?";
+public class apiConnector {
+    public static final String base_url = "https://www.alphavantage.co/query?";
     private InputStream inputStream;
 
     /**
@@ -20,7 +20,7 @@ class apiConnector {
      * @param url     This is the API url to access the data
      * @param timeout An int that specifies timeout in milliseconds
      */
-    void get_request(String url, int timeout) {
+    public void get_request(String url, int timeout) {
         try {
             URL request = new URL(url);
             URLConnection conn = request.openConnection();
@@ -43,7 +43,7 @@ class apiConnector {
      *
      * @param fileName name of file to write InputStream object to.
      */
-    void write_file(String fileName) {
+    public void write_file(String fileName) {
         try {
             Files.copy(this.inputStream, Paths.get(fileName), StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {

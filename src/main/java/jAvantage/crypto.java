@@ -3,7 +3,7 @@ package jAvantage;
 public class crypto extends apiConnector{
 
     private final String[] sizeValues = {"full", "compact"};
-    private String url;
+    public String url;
 
     /**
      * Constructor for the Crypto Currency Exchange rate
@@ -14,7 +14,7 @@ public class crypto extends apiConnector{
      * @param apikey       Personal Alpha Vantage API key
      */
 
-    private crypto(String function, String symbol, String market, String apikey){
+    public crypto(String function, String symbol, String market, String apikey){
         this.url = base_url + "function=" + function + "&symbol=" + symbol + "&market=" + market + "&apikey=" + apikey;
     }
 

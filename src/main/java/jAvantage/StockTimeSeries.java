@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class StockTimeSeries extends apiConnector{
 
     private final String[] sizeValues = {"full", "compact"};
-    private String url;
+    public String url;
 
     /**
      * Constructor for the StockTimeSeries class which runs the checkInputs method to make sure
