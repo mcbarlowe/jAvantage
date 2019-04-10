@@ -1,6 +1,6 @@
 package jAvantage.technicalIndicators;
 
-import jAvantage.apiConnector;
+        import jAvantage.apiConnector;
 
 public class DEMA extends apiConnector {
 

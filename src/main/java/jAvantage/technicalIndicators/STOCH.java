@@ -50,10 +50,10 @@ public class STOCH extends apiConnector {
                     "&fastkperiod=" + fastkperiod + "&slowkperiod=" + slowkperiod + "&slowdperiod=" + slowdperiod +
                     "&slowkmatype=" + slowkmatype + "&slowdmatype=" + slowdmatype;
         } else  if (period.length > 3){
-            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the STOCH API call and it needs six.\n" +
+            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the STOCH API call and it needs five.\n" +
                     "If you want default values remember to pass null to the option you want to have default");
         } else {
-            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the STOCH API call and it needs six.\n" +
+            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the STOCH API call and it needs five.\n" +
                     "If you want default values remember to pass null to the option you want to have default");
         }
     }
