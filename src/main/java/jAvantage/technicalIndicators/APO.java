@@ -2,8 +2,6 @@ package jAvantage.technicalIndicators;
 
 import jAvantage.apiConnector;
 
-import java.sql.Array;
-
 public class APO extends apiConnector {
 
     private String url;
@@ -27,11 +25,11 @@ public class APO extends apiConnector {
             if (period[0] != null) {
                 fastperiod = period[0];
             }
-            if (period[2] != null) {
-                slowperiod = period[2];
+            if (period[1] != null) {
+                slowperiod = period[1];
             }
-            if (period[4] != null) {
-                fastdmatype = period[4];
+            if (period[2] != null) {
+                fastdmatype = period[2];
             }
             this.url = base_url + "function=APO" + "&symbol=" + symbol + "&interval=" + interval
                     + "&series_type=" + series_type + "&apikey=" + apikey + "&time_period=" + time_period +
@@ -43,15 +41,15 @@ public class APO extends apiConnector {
                     "&fastperiod=" + fastperiod +  "&slowperiod=" + slowperiod +
                     "&fastdmatype=" + fastdmatype;
         } else  if (period.length > 3){
-            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the APO API call and it needs seven.\n" +
+            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the APO API call and it needs eight.\n" +
                     "If you want default values remember to pass null to the option you want to have default");
         } else {
-            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the APO API call and it needs seven.\n" +
+            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the APO API call and it needs eight.\n" +
                     "If you want default values remember to pass null to the option you want to have default");
         }
     }
     public static void main(String[] args) {
-        APO APODaily = new APO("MSFT", "5min", 60,"close","BKWGHZ46RDAVZQOK", 5, null, 27, null, null);
+        APO APODaily = new APO("MSFT", "5min", 60,"close","BKWGHZ46RDAVZQOK", 5, null, 27);
         System.out.println(APODaily.url);
         APODaily.get_request(APODaily.url, 2000);
         APODaily.write_file("APODaily.json");
