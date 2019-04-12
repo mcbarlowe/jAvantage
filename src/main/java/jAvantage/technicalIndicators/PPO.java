@@ -23,15 +23,15 @@ public class PPO extends apiConnector {
         int fastperiod = 5;
         int slowperiod = 3;
         int fastdmatype = 0;
-        if (period.length == 5) {
+        if (period.length == 3) {
             if (period[0] != null) {
                 fastperiod = period[0];
             }
-            if (period[2] != null) {
-                slowperiod = period[2];
+            if (period[1] != null) {
+                slowperiod = period[1];
             }
-            if (period[4] != null) {
-                fastdmatype = period[4];
+            if (period[2] != null) {
+                fastdmatype = period[2];
             }
             this.url = base_url + "function=PPO" + "&symbol=" + symbol + "&interval=" + interval
                     + "&series_type=" + series_type + "&apikey=" + apikey + "&time_period=" + time_period +
@@ -43,15 +43,15 @@ public class PPO extends apiConnector {
                     "&fastperiod=" + fastperiod +  "&slowperiod=" + slowperiod +
                     "&fastdmatype=" + fastdmatype;
         } else  if (period.length > 3){
-            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the PPO API call and it needs seven.\n" +
+            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the PPO API call and it needs eight.\n" +
                     "If you want default values remember to pass null to the option you want to have default");
         } else {
-            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the PPO API call and it needs seven.\n" +
+            throw new ArrayIndexOutOfBoundsException("\nYou passed " + period.length + " arguments to the PPO API call and it needs eight.\n" +
                     "If you want default values remember to pass null to the option you want to have default");
         }
     }
     public static void main(String[] args) {
-        PPO PPODaily = new PPO("MSFT", "5min", 60,"close","BKWGHZ46RDAVZQOK", 5, null, 27, null, null);
+        PPO PPODaily = new PPO("MSFT", "5min", 60,"close","BKWGHZ46RDAVZQOK",  null, null, null);
         System.out.println(PPODaily.url);
         PPODaily.get_request(PPODaily.url, 2000);
         PPODaily.write_file("PPODaily.json");
