@@ -13,12 +13,12 @@ public class DX extends apiConnector {
      * @param time_period Number of data points used to calculate the moving average.
      * @param apikey      Personal API key.
      */
-    public DX(String symbol, String interval, int time_period, String series_type, String apikey) {
+    public DX(String symbol, String interval, int time_period, String apikey) {
         this.url = base_url + "function=DX" + "&symbol=" + symbol + "&interval=" + interval
-                + "&time_period=" + time_period + "&series_type=" + series_type + "&apikey=" + apikey;
+                + "&time_period=" + time_period +  "&apikey=" + apikey;
     }
     public static void main(String[] args) {
-        DX DXDaily = new DX("MSFT", "5min", 100, "close", "BKWGHZ46RDAVZQOK");
+        DX DXDaily = new DX("MSFT", "5min", 100,  "BKWGHZ46RDAVZQOK");
         System.out.println(DXDaily.url);
         DXDaily.get_request(DXDaily.url, 2000);
         DXDaily.write_file("DXDaily.json");
