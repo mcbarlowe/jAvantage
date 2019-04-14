@@ -17,7 +17,7 @@ public class DEMA extends apiConnector {
      * @param apikey      Personal API key.
      */
     public DEMA(String symbol, String interval, int time_period, String series_type, String apikey) {
-        this.url = base_url + "function=SMA" + "&symbol=" + symbol + "&interval=" + interval
+        this.url = base_url + "function=DEMA" + "&symbol=" + symbol + "&interval=" + interval
                 + "&time_period=" + time_period + "&series_type=" + series_type + "&apikey=" + apikey;
     }
     public static void main(String[] args) {
