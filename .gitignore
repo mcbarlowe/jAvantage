@@ -3,3 +3,5 @@ jAvantage.iml
 target/
 *.json
 *.csv
+META-INF
+classes/

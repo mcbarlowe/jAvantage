@@ -16,7 +16,7 @@ public class forex extends apiConnector {
      * @param to_symbol    Three letter symbol from the Forex currency list.
      * @param apikey       Personal Alpha Vantage API key
      */
-    private forex(String function, String from_symbol, String to_symbol, String apikey) {
+    public forex(String function, String from_symbol, String to_symbol, String apikey) {
         this.url = base_url + "function=" + function + "&from_symbol=" + from_symbol + "&to_symbol="
                 + to_symbol + "&apikey=" + apikey;
     }
@@ -30,7 +30,7 @@ public class forex extends apiConnector {
      * @param outputSize   Output size of the API call
      * @param interval     Time interval between two data points in minutes
      */
-    private forex(String function, String from_symbol, String to_symbol, String apikey, String outputSize, int... interval) {
+    public forex(String function, String from_symbol, String to_symbol, String apikey, String outputSize, int... interval) {
         this.url = base_url + "function=" + function + "&from_symbol=" + from_symbol + "&to_symbol="
                 + to_symbol + "&interval=" + interval[0] + "min&outputsize=" + outputSize + "&apikey=" + apikey;
     }
@@ -43,7 +43,7 @@ public class forex extends apiConnector {
      * @param apikey       Personal Alpha Vantage API key
      * @param outputSize   Output size of the API call
      */
-    private forex(String function, String from_symbol, String to_symbol, String apikey, String outputSize) {
+    public forex(String function, String from_symbol, String to_symbol, String apikey, String outputSize) {
         this.url = base_url + "function=" + function + "&from_symbol=" + from_symbol + "&to_symbol="
                 + to_symbol + "&outputsize=" + outputSize + "&apikey=" + apikey;
     }

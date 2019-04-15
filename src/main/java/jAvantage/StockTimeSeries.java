@@ -19,7 +19,7 @@ public class StockTimeSeries extends apiConnector{
      * @param interval This is the time interval between two data points in minutes
      * @param outputSize Sets the output size of the API call compact returns just last 100 data points
      */
-    private StockTimeSeries(String function, String symbol, String apikey, String outputSize, int... interval){
+    public StockTimeSeries(String function, String symbol, String apikey, String outputSize, int... interval){
         checkInputs(function, symbol, apikey, outputSize, interval);
         this.url = base_url + "function=" + function + "&symbol=" + symbol + "&interval=" + interval[0] +"min" +
             "&outputsize=" + outputSize + "&apikey=" + apikey;
@@ -32,7 +32,7 @@ public class StockTimeSeries extends apiConnector{
      * @param apikey   Your personal API key provided by Alpha Vantage
      * @param outputSize Sets the output size of the API call compact returns just last 100 data points
      */
-    private StockTimeSeries(String function, String symbol, String apikey, String outputSize){
+    public StockTimeSeries(String function, String symbol, String apikey, String outputSize){
         checkInputs(function, symbol, apikey, outputSize);
         this.url = base_url + "function=" + function + "&symbol=" + symbol +
             "&outputsize=" + outputSize + "&apikey=" + apikey;
@@ -46,7 +46,7 @@ public class StockTimeSeries extends apiConnector{
      * @param symbol   The Stock symbol you want to query against the Alpha Vantage API
      * @param apikey   Your personal API key provided by Alpha Vantage
      */
-    private StockTimeSeries(String function, String symbol, String apikey){
+    public StockTimeSeries(String function, String symbol, String apikey){
         checkInputs(function, symbol, apikey);
         this.url = base_url + "function=" + function + "&symbol=" + symbol +
                 "&apikey=" + apikey;
