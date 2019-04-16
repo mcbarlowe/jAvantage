@@ -117,7 +117,7 @@ public class StockTimeSeries extends apiConnector{
         StockTimeSeries timeSeriesWeekly = new StockTimeSeries("TIME_SERIES_WEEKLY", "MSFT",
                 "BKWGHZ46RDAVZQOK");
         System.out.println(timeSeriesWeekly.url);
-        timeSeriesWeekly.get_request(timeSeriesWeekly.url, 750);
+        timeSeriesWeekly.get_request(timeSeriesWeekly.url, 1000);
         timeSeriesWeekly.write_file("timeSeriesWeekly.json");
     }
 
